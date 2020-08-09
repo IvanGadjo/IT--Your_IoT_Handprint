@@ -1,0 +1,7 @@
+# SQL Server files
+*.mdf
+*.ldf
+
+#bin and obj folders
+bin
+obj
