@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -34,7 +35,9 @@ namespace Your_IoT_Handprint.Models
         public int Quantity { get; set; }
 
         // conn
-        // public string UserId { get; set; }
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        public ApplicationUser User { get; set; }
 
         public virtual List<Order> Orders { get; set; }
 

@@ -50,12 +50,18 @@ namespace Your_IoT_Handprint.Controllers
         {
             if (ModelState.IsValid)
             {
+                string userId = Session["userId"].ToString();
+                ApplicationUser theUser = db.Users.Find(userId);
+                project.UserId = theUser.Id;
+                project.User = theUser;
+
                 db.projects.Add(project);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "ProjectsAndEvents");
             }
 
             return View(project);
+            // return RedirectToAction("Index", "ProjectsAndEvents");
         }
 
         // GET: Projects/Edit/5

@@ -171,6 +171,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProjectsAndEventsController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -186,6 +187,14 @@
     <Compile Include="Migrations\202008161124547_nameOnProjectAndEvent.cs" />
     <Compile Include="Migrations\202008161124547_nameOnProjectAndEvent.designer.cs">
       <DependentUpon>202008161124547_nameOnProjectAndEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008161310201_userIdToProject.cs" />
+    <Compile Include="Migrations\202008161310201_userIdToProject.designer.cs">
+      <DependentUpon>202008161310201_userIdToProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008161316351_userIdToEvent.cs" />
+    <Compile Include="Migrations\202008161316351_userIdToEvent.designer.cs">
+      <DependentUpon>202008161316351_userIdToEvent.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -259,6 +268,7 @@
     <Content Include="Views\Projects\Details.cshtml" />
     <Content Include="Views\Projects\Edit.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
+    <Content Include="Views\ProjectsAndEvents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -285,6 +295,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008161124547_nameOnProjectAndEvent.resx">
       <DependentUpon>202008161124547_nameOnProjectAndEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008161310201_userIdToProject.resx">
+      <DependentUpon>202008161310201_userIdToProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008161316351_userIdToEvent.resx">
+      <DependentUpon>202008161316351_userIdToEvent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

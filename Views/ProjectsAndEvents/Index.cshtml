@@ -1,0 +1,56 @@
+﻿@model Your_IoT_Handprint.Models.Helpers.EventsAndProjects
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Ideas</h2>
+
+
+<p>
+    @Html.ActionLink("Create New Project", "CreateProject")
+    <br />
+    @Html.ActionLink("Create New Event", "CreateEvent")
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Average rating</th>
+            <th>Description</th>
+            <th>Github repo/Event link</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var project in Model.Projects)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => project.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => project.ImageUrl)</td>
+                    <td>@Html.DisplayFor(modelItem => project.AvgRating)</td>
+                    <td>@Html.DisplayFor(modelItem => project.Description)</td>
+                    <td>@Html.DisplayFor(modelItem => project.GithubRepoUrl)</td>
+                </tr>
+            }
+
+
+            foreach (var evnt in Model.Events)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => evnt.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => evnt.ImageUrl)</td>
+                    <td>@Html.DisplayFor(modelItem => evnt.AvgRating)</td>
+                    <td>@Html.DisplayFor(modelItem => evnt.Description)</td>
+                    <td>@Html.DisplayFor(modelItem => evnt.EventLinkUrl)</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+
