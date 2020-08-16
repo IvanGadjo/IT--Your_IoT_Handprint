@@ -11,8 +11,10 @@ namespace Your_IoT_Handprint.Models
         [Key]
         public int Id { get; set; }
 
+        [Display(Name = "Ordered on")]
         public DateTime OrderedOn { get; set; }
 
+        [Display(Name = "Recipient adress")]
         public string RecipientAdress { get; set; }
 
         //conn

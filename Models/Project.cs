@@ -11,16 +11,24 @@ namespace Your_IoT_Handprint.Models
         [Key]
         public int Id { get; set; }
 
+        public string Name { get; set; }
+
+        [Display(Name = "All ratings")]
         public List<int> AllRatings { get; set; }
 
+        [Display(Name = "Average rating")]
         public double AvgRating { get; set; }
 
+        [Display(Name = "Image")]
         public string ImageUrl { get; set; }
 
+        [Display(Name = "Description")]
         public string Description { get; set; }
 
+        [Display(Name = "Github repo")]
         public string GithubRepoUrl { get; set; }
 
+        [Display(Name = "For sale")]
         public bool ForSale { get; set; }
 
         public int Quantity { get; set; }
