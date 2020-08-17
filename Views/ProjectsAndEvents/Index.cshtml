@@ -18,6 +18,7 @@
     <thead>
         <tr>
             <th>Name</th>
+            <th>Creator</th>
             <th>Image</th>
             <th>Average rating</th>
             <th>Description</th>
@@ -30,6 +31,7 @@
             {
                 <tr>
                     <td>@Html.DisplayFor(modelItem => project.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => project.CreatorUsername)</td>
                     <td>@Html.DisplayFor(modelItem => project.ImageUrl)</td>
                     <td>@Html.DisplayFor(modelItem => project.AvgRating)</td>
                     <td>@Html.DisplayFor(modelItem => project.Description)</td>
@@ -42,6 +44,7 @@
             {
                 <tr>
                     <td>@Html.DisplayFor(modelItem => evnt.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => evnt.User.UserName)</td>
                     <td>@Html.DisplayFor(modelItem => evnt.ImageUrl)</td>
                     <td>@Html.DisplayFor(modelItem => evnt.AvgRating)</td>
                     <td>@Html.DisplayFor(modelItem => evnt.Description)</td>

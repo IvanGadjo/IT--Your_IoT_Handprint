@@ -29,6 +29,7 @@ namespace Your_IoT_Handprint.Models
         public DbSet<Event> events { get; set; }
         public DbSet<Project> projects { get; set; }
         public DbSet<Order> orders { get; set; }
+        // public DbSet<ApplicationUser> users { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

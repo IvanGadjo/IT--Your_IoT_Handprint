@@ -196,6 +196,14 @@
     <Compile Include="Migrations\202008161316351_userIdToEvent.designer.cs">
       <DependentUpon>202008161316351_userIdToEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008172105477_creatorUsernameToProject.cs" />
+    <Compile Include="Migrations\202008172105477_creatorUsernameToProject.designer.cs">
+      <DependentUpon>202008172105477_creatorUsernameToProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008172111559_creatorUsernameToEvent.cs" />
+    <Compile Include="Migrations\202008172111559_creatorUsernameToEvent.designer.cs">
+      <DependentUpon>202008172111559_creatorUsernameToEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -263,12 +271,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ProjectsAndEvents\Index.cshtml" />
     <Content Include="Views\Projects\Create.cshtml" />
     <Content Include="Views\Projects\Delete.cshtml" />
     <Content Include="Views\Projects\Details.cshtml" />
     <Content Include="Views\Projects\Edit.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
-    <Content Include="Views\ProjectsAndEvents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -301,6 +309,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008161316351_userIdToEvent.resx">
       <DependentUpon>202008161316351_userIdToEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008172105477_creatorUsernameToProject.resx">
+      <DependentUpon>202008172105477_creatorUsernameToProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008172111559_creatorUsernameToEvent.resx">
+      <DependentUpon>202008172111559_creatorUsernameToEvent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

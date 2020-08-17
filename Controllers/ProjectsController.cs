@@ -17,7 +17,8 @@ namespace Your_IoT_Handprint.Controllers
         // GET: Projects
         public ActionResult Index()
         {
-            return View(db.projects.ToList());
+            var projects = db.projects.Include(p => p.User);
+            return View(projects.ToList());
         }
 
         // GET: Projects/Details/5
@@ -38,6 +39,7 @@ namespace Your_IoT_Handprint.Controllers
         // GET: Projects/Create
         public ActionResult Create()
         {
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
@@ -46,22 +48,19 @@ namespace Your_IoT_Handprint.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,AvgRating,ImageUrl,Description,GithubRepoUrl,ForSale,Quantity")] Project project)
+        public ActionResult Create([Bind(Include = "Id,Name,AvgRating,ImageUrl,Description,GithubRepoUrl,ForSale,Quantity,UserId")] Project project)
         {
             if (ModelState.IsValid)
             {
-                string userId = Session["userId"].ToString();
-                ApplicationUser theUser = db.Users.Find(userId);
-                project.UserId = theUser.Id;
-                project.User = theUser;
+                project.CreatorUsername = db.Users.Find(project.UserId).UserName;
 
                 db.projects.Add(project);
                 db.SaveChanges();
-                return RedirectToAction("Index", "ProjectsAndEvents");
+                return RedirectToAction("Index");
             }
 
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", project.UserId);
             return View(project);
-            // return RedirectToAction("Index", "ProjectsAndEvents");
         }
 
         // GET: Projects/Edit/5
@@ -76,6 +75,7 @@ namespace Your_IoT_Handprint.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", project.UserId);
             return View(project);
         }
 
@@ -84,7 +84,7 @@ namespace Your_IoT_Handprint.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,AvgRating,ImageUrl,Description,GithubRepoUrl,ForSale,Quantity")] Project project)
+        public ActionResult Edit([Bind(Include = "Id,Name,AvgRating,ImageUrl,Description,GithubRepoUrl,ForSale,Quantity,UserId")] Project project)
         {
             if (ModelState.IsValid)
             {
@@ -92,6 +92,7 @@ namespace Your_IoT_Handprint.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", project.UserId);
             return View(project);
         }
 

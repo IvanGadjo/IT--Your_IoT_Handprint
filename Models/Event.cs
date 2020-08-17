@@ -14,6 +14,9 @@ namespace Your_IoT_Handprint.Models
 
         public string Name { get; set; }
 
+        [Display(Name = "Creator")]
+        public string CreatorUsername { get; set; }
+
         [Display(Name = "All ratings")]
         public List<int> AllRatings { get; set; }
 
