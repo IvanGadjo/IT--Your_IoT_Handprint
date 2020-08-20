@@ -73,8 +73,9 @@ namespace Your_IoT_Handprint.Controllers
                 return View(model);
             }
 
-            ApplicationUser theUser = UserManager.FindByName(model.Username);
-            Session["userId"] = theUser.Id;
+            // nema potreba od ova
+            // ApplicationUser theUser = UserManager.FindByName(model.Username);
+            // Session["userId"] = theUser.Id;
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true

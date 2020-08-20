@@ -10,7 +10,8 @@
 <p>
     @Html.ActionLink("Create New Project", "CreateProject")
     <br />
-    @Html.ActionLink("Create New Event", "CreateEvent")
+    @Html.ActionLink("Create New Event", "Create", "Events")
+    
 </p>
 
 
@@ -23,6 +24,8 @@
             <th>Average rating</th>
             <th>Description</th>
             <th>Github repo/Event link</th>
+            <th>TYPE</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -36,6 +39,10 @@
                     <td>@Html.DisplayFor(modelItem => project.AvgRating)</td>
                     <td>@Html.DisplayFor(modelItem => project.Description)</td>
                     <td>@Html.DisplayFor(modelItem => project.GithubRepoUrl)</td>
+                    <td>PROJECT</td>
+                    <td>
+                        <button><a href="/Projects/Details/@project.Id">Details</a></button>
+                    </td>
                 </tr>
             }
 
@@ -44,11 +51,15 @@
             {
                 <tr>
                     <td>@Html.DisplayFor(modelItem => evnt.Name)</td>
-                    <td>@Html.DisplayFor(modelItem => evnt.User.UserName)</td>
+                    <td>@Html.DisplayFor(modelItem => evnt.CreatorUsername)</td>
                     <td>@Html.DisplayFor(modelItem => evnt.ImageUrl)</td>
                     <td>@Html.DisplayFor(modelItem => evnt.AvgRating)</td>
                     <td>@Html.DisplayFor(modelItem => evnt.Description)</td>
                     <td>@Html.DisplayFor(modelItem => evnt.EventLinkUrl)</td>
+                    <td>EVENT</td>
+                    <td>
+                        <button><a href="/Events/Details/@evnt.Id">Details</a></button>
+                    </td>
                 </tr>
             }
         }
