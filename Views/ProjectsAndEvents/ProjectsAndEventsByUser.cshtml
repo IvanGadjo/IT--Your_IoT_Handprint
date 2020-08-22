@@ -33,13 +33,15 @@
                 <tr>
                     <td>@Html.DisplayFor(modelItem => project.Name)</td>
                     <td>@Html.DisplayFor(modelItem => project.CreatorUsername)</td>
-                    <td>@Html.DisplayFor(modelItem => project.ImageUrl)</td>
+                    <td>
+                        <img src=@project.ImageUrl />
+                    </td>
                     <td>@Html.DisplayFor(modelItem => project.AvgRating)</td>
                     <td>@Html.DisplayFor(modelItem => project.Description)</td>
                     <td>@Html.DisplayFor(modelItem => project.GithubRepoUrl)</td>
                     <td>PROJECT</td>
                     <td>
-                        <button><a href="/Projects/Details/@project.Id">Details</a></button>
+                        <button><a href="/Projects/ProjectDetailsByUser/@project.Id">Details</a></button>
                         <button><a href="/Projects/Delete/@project.Id">Delete</a></button>
                     </td>
                 </tr>
@@ -51,14 +53,16 @@
                 <tr>
                     <td>@Html.DisplayFor(modelItem => evnt.Name)</td>
                     <td>@Html.DisplayFor(modelItem => evnt.CreatorUsername)</td>
-                    <td>@Html.DisplayFor(modelItem => evnt.ImageUrl)</td>
+                    <td>
+                        <img src=@evnt.ImageUrl/>
+                    </td>
                     <td>@Html.DisplayFor(modelItem => evnt.AvgRating)</td>
                     <td>@Html.DisplayFor(modelItem => evnt.Description)</td>
                     <td>@Html.DisplayFor(modelItem => evnt.EventLinkUrl)</td>
                     <td>EVENT</td>
                     <td>
-                        <button><a href="/Events/Details/@evnt.Id">Details</a></button>
-                        <button><a href="/Event/Delete/@evnt.Id">Delete</a></button>
+                        <button><a href="/Events/EventDetailsByUser/@evnt.Id">Details</a></button>
+                        <button><a href="/Events/Delete/@evnt.Id">Delete</a></button>
                     </td>
                 </tr>
             }

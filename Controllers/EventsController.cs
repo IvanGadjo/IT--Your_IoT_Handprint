@@ -42,6 +42,24 @@ namespace Your_IoT_Handprint.Controllers
             return View(@event);
         }
 
+        // GET: Events/EventDetailsByUser/5
+        public ActionResult EventDetailsByUser(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Event @event = db.events.Find(id);
+            if (@event == null)
+            {
+                return HttpNotFound();
+            }
+            return View(@event);
+        }
+
+
+
+
         // GET: Events/Create
         public ActionResult Create()
         {

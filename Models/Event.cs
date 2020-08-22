@@ -12,6 +12,7 @@ namespace Your_IoT_Handprint.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         [Display(Name = "Creator")]
@@ -26,13 +27,16 @@ namespace Your_IoT_Handprint.Models
         [Display(Name = "Image")]
         public string ImageUrl { get; set; }
 
+        [Required]
         public string Location { get; set; }
 
+        [Required]
         public string Description { get; set; }
 
         [Display(Name = "Event link")]
         public string EventLinkUrl { get; set; }
 
+        [Required]
         public DateTime Date { get; set; }
 
         // conn
@@ -48,6 +52,14 @@ namespace Your_IoT_Handprint.Models
         }
 
         // DDD methods
-        // public void addNewRating(int rating) { }    // recalculate avg
+        // recalculate avg rating
+        public void addNewRating(int rating)
+        {
+            AllRatings.Add(rating);
+
+            double rez = (AllRatings.Sum()) / (AllRatings.Count());
+
+            AvgRating = rez;
+        }
     }
 }

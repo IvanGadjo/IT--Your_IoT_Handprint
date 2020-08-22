@@ -205,6 +205,18 @@
     <Compile Include="Migrations\202008172111559_creatorUsernameToEvent.designer.cs">
       <DependentUpon>202008172111559_creatorUsernameToEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008221043319_quantityNotRequired.cs" />
+    <Compile Include="Migrations\202008221043319_quantityNotRequired.designer.cs">
+      <DependentUpon>202008221043319_quantityNotRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008221047528_requiredFieldsAdded.cs" />
+    <Compile Include="Migrations\202008221047528_requiredFieldsAdded.designer.cs">
+      <DependentUpon>202008221047528_requiredFieldsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008221314340_DDDMethods.cs" />
+    <Compile Include="Migrations\202008221314340_DDDMethods.designer.cs">
+      <DependentUpon>202008221314340_DDDMethods.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -284,6 +296,8 @@
     <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
     <Content Include="Views\ProjectsAndEvents\ProjectsAndEventsByUser.cshtml" />
+    <Content Include="Views\Projects\ProjectDetailsByUser.cshtml" />
+    <Content Include="Views\Events\EventDetailsByUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -322,6 +336,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008172111559_creatorUsernameToEvent.resx">
       <DependentUpon>202008172111559_creatorUsernameToEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008221043319_quantityNotRequired.resx">
+      <DependentUpon>202008221043319_quantityNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008221047528_requiredFieldsAdded.resx">
+      <DependentUpon>202008221047528_requiredFieldsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008221314340_DDDMethods.resx">
+      <DependentUpon>202008221314340_DDDMethods.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

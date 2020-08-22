@@ -48,6 +48,23 @@ namespace Your_IoT_Handprint.Controllers
             return View(project);
         }
 
+        // GET: Projects/ProjectDetailsByUser/5
+        public ActionResult ProjectDetailsByUser(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Project project = db.projects.Find(id);
+            if (project == null)
+            {
+                return HttpNotFound();
+            }
+            return View(project);
+        }
+
+
+
         // GET: Projects/Create
         public ActionResult Create()
         {

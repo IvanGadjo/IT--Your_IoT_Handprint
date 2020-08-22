@@ -35,7 +35,9 @@
                 <tr>
                     <td>@Html.DisplayFor(modelItem => project.Name)</td>
                     <td>@Html.DisplayFor(modelItem => project.CreatorUsername)</td>
-                    <td>@Html.DisplayFor(modelItem => project.ImageUrl)</td>
+                    <td>
+                        <img src=@project.ImageUrl />
+                    </td>
                     <td>@Html.DisplayFor(modelItem => project.AvgRating)</td>
                     <td>@Html.DisplayFor(modelItem => project.Description)</td>
                     <td>@Html.DisplayFor(modelItem => project.GithubRepoUrl)</td>
@@ -52,7 +54,9 @@
                 <tr>
                     <td>@Html.DisplayFor(modelItem => evnt.Name)</td>
                     <td>@Html.DisplayFor(modelItem => evnt.CreatorUsername)</td>
-                    <td>@Html.DisplayFor(modelItem => evnt.ImageUrl)</td>
+                    <td>
+                        <img src=@evnt.ImageUrl />
+                    </td>
                     <td>@Html.DisplayFor(modelItem => evnt.AvgRating)</td>
                     <td>@Html.DisplayFor(modelItem => evnt.Description)</td>
                     <td>@Html.DisplayFor(modelItem => evnt.EventLinkUrl)</td>

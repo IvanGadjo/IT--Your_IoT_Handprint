@@ -1,13 +1,13 @@
-﻿@model Your_IoT_Handprint.Models.Project
+﻿@model Your_IoT_Handprint.Models.Event
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "EventDetailsByUser";
 }
 
-<h2>Details</h2>
+<h2>EventDetailsByUser</h2>
 
 <div>
-    <h4>Project</h4>
+    <h4>Event</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -27,6 +27,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.CreatorUsername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatorUsername)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.AvgRating)
         </dt>
 
@@ -43,6 +51,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Description)
         </dt>
 
@@ -51,34 +67,25 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.GithubRepoUrl)
+            @Html.DisplayNameFor(model => model.EventLinkUrl)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.GithubRepoUrl)
+            @Html.DisplayFor(model => model.EventLinkUrl)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ForSale)
+            @Html.DisplayNameFor(model => model.Date)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ForSale)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Quantity)
+            @Html.DisplayFor(model => model.Date)
         </dd>
 
     </dl>
 </div>
 <p>
-    <!--
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    -->
-    @Html.ActionLink("Back to List", "Index", "ProjectsAndEvents")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "ProjectsAndEventsByUser", "ProjectsAndEvents")
 </p>
+
