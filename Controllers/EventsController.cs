@@ -18,11 +18,11 @@ namespace Your_IoT_Handprint.Controllers
 
         // ------------------ Unused
         // GET: Events
-        public ActionResult Index()
+        /*public ActionResult Index()
         {
             var events = db.events.Include(p => p.User);
             return View(events.ToList());
-        }
+        }*/
 
 
 
@@ -65,7 +65,7 @@ namespace Your_IoT_Handprint.Controllers
 
                 db.events.Add(@event);
                 db.SaveChanges();
-                return RedirectToAction("Index", "ProjectsAndEvents");
+                return RedirectToAction("ProjectsAndEventsByUser", "ProjectsAndEvents");
             }
 
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", @event.UserId);
@@ -99,7 +99,7 @@ namespace Your_IoT_Handprint.Controllers
             {
                 db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ProjectsAndEventsByUser", "ProjectsAndEvents");
             }
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", @event.UserId);
             return View(@event);
@@ -128,7 +128,7 @@ namespace Your_IoT_Handprint.Controllers
             Event @event = db.events.Find(id);
             db.events.Remove(@event);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ProjectsAndEventsByUser", "ProjectsAndEvents");
         }
 
         protected override void Dispose(bool disposing)

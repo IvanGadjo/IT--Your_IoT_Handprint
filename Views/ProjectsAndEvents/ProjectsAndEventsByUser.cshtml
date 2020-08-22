@@ -1,19 +1,17 @@
 ﻿@model Your_IoT_Handprint.Models.Helpers.EventsAndProjects
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "ProjectsAndEventsByUser";
 }
 
-<h2>All Ideas</h2>
+<h2>Your projects and events</h2>
 
-<!--
 <p>
     @Html.ActionLink("Create New Project", "CreateProject")
     <br />
     @Html.ActionLink("Create New Event", "Create", "Events")
-
 </p>
--->
+
 
 <table class="table">
     <thead>
@@ -42,6 +40,7 @@
                     <td>PROJECT</td>
                     <td>
                         <button><a href="/Projects/Details/@project.Id">Details</a></button>
+                        <button><a href="/Projects/Delete/@project.Id">Delete</a></button>
                     </td>
                 </tr>
             }
@@ -59,12 +58,10 @@
                     <td>EVENT</td>
                     <td>
                         <button><a href="/Events/Details/@evnt.Id">Details</a></button>
+                        <button><a href="/Event/Delete/@evnt.Id">Delete</a></button>
                     </td>
                 </tr>
             }
         }
     </tbody>
 </table>
-
-
-
