@@ -86,6 +86,8 @@ namespace Your_IoT_Handprint.Controllers
                 project.CreatorUsername = loggedInUser.UserName;
                 project.UserId = loggedInUser.Id;
 
+                project.AllRatingsString = "";
+
 
                 db.projects.Add(project);
                 db.SaveChanges();
@@ -153,6 +155,22 @@ namespace Your_IoT_Handprint.Controllers
             db.projects.Remove(project);
             db.SaveChanges();
             return RedirectToAction("ProjectsAndEventsByUser", "ProjectsAndEvents");
+        }
+
+
+        // POST: Projects/RateProject/5
+        [HttpPost]
+        public ActionResult RateProject(int id, int rating)
+        {
+            Project project = db.projects.Find(id);
+            
+            //project.AllRatings.Add(rating);
+            project.addNewRating(rating);
+
+            db.Entry(project).State = EntityState.Modified;
+            //db.projects.Add(project);
+            db.SaveChanges();
+            return RedirectToAction("Index", "ProjectsAndEvents");
         }
 
         protected override void Dispose(bool disposing)

@@ -43,7 +43,17 @@
                     <td>@Html.DisplayFor(modelItem => project.GithubRepoUrl)</td>
                     <td>PROJECT</td>
                     <td>
-                        <button><a href="/Projects/Details/@project.Id">Details</a></button>
+                        <div>
+                            <button><a href="/Projects/Details/@project.Id">Details</a></button>
+                            <br />
+                            @using (Html.BeginForm("RateProject", "Projects",new { id = project.Id }))
+                            {
+
+                                <input type="number" name="rating" />
+                                
+                                <button type="submit">Rate</button>
+                            }
+                        </div>
                     </td>
                 </tr>
             }
@@ -62,7 +72,14 @@
                     <td>@Html.DisplayFor(modelItem => evnt.EventLinkUrl)</td>
                     <td>EVENT</td>
                     <td>
-                        <button><a href="/Events/Details/@evnt.Id">Details</a></button>
+                        <div>
+                            <button><a href="/Events/Details/@evnt.Id">Details</a></button>
+                            <br />
+                            Your rating:
+                            <br />
+                            <input type="number" />
+                            <button>Rate</button>
+                        </div>
                     </td>
                 </tr>
             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text;
 using System.Web;
 
 namespace Your_IoT_Handprint.Models
@@ -17,9 +18,6 @@ namespace Your_IoT_Handprint.Models
 
         [Display(Name = "Creator")]
         public string CreatorUsername { get; set; }
-
-        [Display(Name = "All ratings")]
-        public List<int> AllRatings { get; set; }
 
         [Display(Name = "Average rating")]
         public double AvgRating { get; set; }
@@ -39,6 +37,47 @@ namespace Your_IoT_Handprint.Models
 
         public int? Quantity { get; set; }
 
+
+
+        // List of primitive types
+
+        public string AllRatingsString { get; set; }
+
+        [NotMapped]
+        public virtual List<int> RatingsDTO {
+            get     // konvertira AllRatingsString vo List<int>
+            {
+                string[] strArr = AllRatingsString.Split(',');
+                if (strArr[0].Equals("")){
+                    return new List<int>();
+                }
+                int[] intArr = Array.ConvertAll<string, int>(strArr, new Converter<string, int>(Convert.ToInt32));
+                return intArr.ToList();
+            }
+            set     // konvertira List<int> vo AllRatingsString
+            {
+                if (value.Count != 0)
+                {
+                    if (AllRatingsString.Equals(""))
+                    {       
+                        AllRatingsString = value.First().ToString();
+                    }
+                    else
+                    {
+                        var s = new StringBuilder(AllRatingsString);
+                        s.Append(",");
+                        s.Append(value.First());
+                        AllRatingsString = s.ToString();
+                    }           
+                }
+            }
+        }
+
+
+
+
+
+
         // conn
         public string UserId { get; set; }
         [ForeignKey("UserId")]
@@ -50,17 +89,27 @@ namespace Your_IoT_Handprint.Models
 
         public Project()
         {
-            AllRatings = new List<int>();
+            RatingsDTO = new List<int>();
             Orders = new List<Order>();
         }
+
+
 
         // DDD methods
         // recalculate avg rating
         public void addNewRating(int rating)
         {
-            AllRatings.Add(rating);
+            List<int> listata = new List<int>();
+            listata.Add(rating);
 
-            double rez = (AllRatings.Sum())/(AllRatings.Count());
+            RatingsDTO = listata;
+
+            List<int> allRatings = RatingsDTO;
+            int suma = allRatings.Sum();
+            int numEls = allRatings.Count();
+
+
+            double rez = suma/numEls;
 
             AvgRating = rez;
         }
