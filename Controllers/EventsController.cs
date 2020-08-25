@@ -81,6 +81,8 @@ namespace Your_IoT_Handprint.Controllers
                 @event.CreatorUsername = loggedInUser.UserName;
                 @event.UserId = loggedInUser.Id;
 
+                @event.AllRatingsString = "";
+
                 db.events.Add(@event);
                 db.SaveChanges();
                 return RedirectToAction("ProjectsAndEventsByUser", "ProjectsAndEvents");
@@ -148,6 +150,24 @@ namespace Your_IoT_Handprint.Controllers
             db.SaveChanges();
             return RedirectToAction("ProjectsAndEventsByUser", "ProjectsAndEvents");
         }
+
+
+        // POST: Events/RateProject/5
+        [HttpPost]
+        public ActionResult RateEvent(int id, int rating)
+        {
+            Event ev = db.events.Find(id);
+
+            //project.AllRatings.Add(rating);
+            ev.addNewRating(rating);
+
+            db.Entry(ev).State = EntityState.Modified;
+            //db.projects.Add(project);
+            db.SaveChanges();
+            return RedirectToAction("Index", "ProjectsAndEvents");
+        }
+
+
 
         protected override void Dispose(bool disposing)
         {

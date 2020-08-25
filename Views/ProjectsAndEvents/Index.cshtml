@@ -75,10 +75,13 @@
                         <div>
                             <button><a href="/Events/Details/@evnt.Id">Details</a></button>
                             <br />
-                            Your rating:
-                            <br />
-                            <input type="number" />
-                            <button>Rate</button>
+                            @using (Html.BeginForm("RateEvent", "Events", new { id = evnt.Id }))
+                            {
+
+                                <input type="number" name="rating" />
+
+                                <button type="submit">Rate</button>
+                            }
                         </div>
                     </td>
                 </tr>
