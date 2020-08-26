@@ -80,5 +80,12 @@
     <!--
         @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     -->
-    @Html.ActionLink("Back to List", "Index", "ProjectsAndEvents")
+    @{
+        if (Model.ForSale && Model.Quantity > 0)
+        {
+            <!--@Html.ActionLink("Order", "Create", "Orders", new { Model.Id })-->
+            <a href="/Orders/Create/@Model.Id">Order</a>
+        }
+    }
+    @Html.ActionLink("Back to List", "Index", "EventsAndProjects")
 </p>
