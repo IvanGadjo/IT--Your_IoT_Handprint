@@ -46,13 +46,28 @@
                         <div>
                             <button><a href="/Projects/Details/@project.Id">Details</a></button>
                             <br />
-                            @using (Html.BeginForm("RateProject", "Projects",new { id = project.Id }))
-                            {
 
-                                <input type="number" name="rating" />
-                                
-                                <button type="submit">Rate</button>
+                            @{
+                                if (!project.UserId.Equals(ViewBag.LoggedInUserId))
+                                {
+                                    using (Html.BeginForm("RateProject", "Projects", new { id = project.Id }))
+                                    {
+
+                                        <input type="number" name="rating" min="1" max="10" />
+
+                                        <button type="submit">Rate</button>
+                                    }
+                                }
                             }
+
+                            <!--
+                                @using (Html.BeginForm("RateProject", "Projects", new { id = project.Id }))
+                                {
+
+                                    <input type="number" name="rating" min="1" max="10" />
+
+                                    <button type="submit">Rate</button>
+                                }-->
                         </div>
                     </td>
                 </tr>
@@ -75,13 +90,19 @@
                         <div>
                             <button><a href="/Events/Details/@evnt.Id">Details</a></button>
                             <br />
-                            @using (Html.BeginForm("RateEvent", "Events", new { id = evnt.Id }))
-                            {
+                            @{
+                                if (!evnt.UserId.Equals(ViewBag.LoggedInUserId))
+                                {
+                                    using (Html.BeginForm("RateEvent", "Events", new { id = evnt.Id }))
+                                    {
 
-                                <input type="number" name="rating" />
+                                        <input type="number" name="rating" min="1" max="10" />
 
-                                <button type="submit">Rate</button>
+                                        <button type="submit">Rate</button>
+                                    }
+                                }
                             }
+
                         </div>
                     </td>
                 </tr>

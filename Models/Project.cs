@@ -109,7 +109,7 @@ namespace Your_IoT_Handprint.Models
             int numEls = allRatings.Count();
 
 
-            double rez = suma/numEls;
+            double rez = Math.Round((double)suma/ (double)numEls,2);
 
             AvgRating = rez;
         }

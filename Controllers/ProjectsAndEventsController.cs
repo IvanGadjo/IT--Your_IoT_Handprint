@@ -13,6 +13,9 @@ namespace Your_IoT_Handprint.Controllers
     public class ProjectsAndEventsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationUser loggedInUser = System.Web.HttpContext.Current.GetOwinContext()
+            .GetUserManager<ApplicationUserManager>()
+            .FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
 
         // GET: ProjectsAndEvents
         // All projects and events
@@ -21,6 +24,7 @@ namespace Your_IoT_Handprint.Controllers
             EventsAndProjects model = new EventsAndProjects();
             model.Projects = db.projects.ToList();
             model.Events = db.events.ToList();
+            ViewBag.LoggedInUserId = loggedInUser.Id;
             return View(model);
         }
 
