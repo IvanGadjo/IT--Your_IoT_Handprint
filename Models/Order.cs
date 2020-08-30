@@ -19,6 +19,9 @@ namespace Your_IoT_Handprint.Models
         [Display(Name = "Recipient adress")]
         public string RecipientAdress { get; set; }
 
+        [Required]
+        public int Quantity { get; set; }
+
         //conn
         public int ProjectId { get; set; }
 
