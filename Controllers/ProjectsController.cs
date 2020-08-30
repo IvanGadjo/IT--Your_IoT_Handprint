@@ -17,6 +17,10 @@ namespace Your_IoT_Handprint.Controllers
     public class ProjectsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        // Vaka se zema logiran user: 
+        private ApplicationUser loggedInUser = System.Web.HttpContext.Current
+            .GetOwinContext().GetUserManager<ApplicationUserManager>()
+            .FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
         protected UserManager<ApplicationUser> UserManager { get; set; }
 
         public ProjectsController()
@@ -82,7 +86,7 @@ namespace Your_IoT_Handprint.Controllers
             if (ModelState.IsValid)
             {
                 // Vaka se zema logiran user: 
-                ApplicationUser loggedInUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+                //ApplicationUser loggedInUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
                 project.CreatorUsername = loggedInUser.UserName;
                 project.UserId = loggedInUser.Id;
 
@@ -123,6 +127,11 @@ namespace Your_IoT_Handprint.Controllers
         {
             if (ModelState.IsValid)
             {
+                project.CreatorUsername = loggedInUser.UserName;
+                project.UserId = loggedInUser.Id;
+
+                project.AllRatingsString = "";
+
                 db.Entry(project).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("ProjectsAndEventsByUser", "ProjectsAndEvents");

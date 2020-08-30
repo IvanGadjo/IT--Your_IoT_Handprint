@@ -15,6 +15,9 @@ namespace Your_IoT_Handprint.Controllers
     public class EventsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationUser loggedInUser = System.Web.HttpContext.Current
+            .GetOwinContext().GetUserManager<ApplicationUserManager>()
+            .FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
 
         // ------------------ Unused
         // GET: Events
@@ -117,6 +120,11 @@ namespace Your_IoT_Handprint.Controllers
         {
             if (ModelState.IsValid)
             {
+                @event.CreatorUsername = loggedInUser.UserName;
+                @event.UserId = loggedInUser.Id;
+
+                @event.AllRatingsString = "";
+
                 db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("ProjectsAndEventsByUser", "ProjectsAndEvents");

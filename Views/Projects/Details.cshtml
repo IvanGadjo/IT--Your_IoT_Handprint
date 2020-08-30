@@ -80,6 +80,9 @@
     <!--
         @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     -->
+
+
+
     @{
         if (Model.ForSale && Model.Quantity > 0)
         {
@@ -87,5 +90,7 @@
             <a href="/Orders/Create/@Model.Id">Order</a>
         }
     }
-    @Html.ActionLink("Back to List", "Index", "EventsAndProjects")
+
+
+    @Html.ActionLink("Back to List", "Index", "ProjectsAndEvents")
 </p>
