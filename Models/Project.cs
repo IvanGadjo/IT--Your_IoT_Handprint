@@ -96,6 +96,7 @@ namespace Your_IoT_Handprint.Models
 
 
         // DDD methods
+
         // recalculate avg rating
         public void addNewRating(int rating)
         {
@@ -113,7 +114,26 @@ namespace Your_IoT_Handprint.Models
 
             AvgRating = rez;
         }
-        // public void order() { } 
+        // order a product, decrease quantity
+        public bool order(int orderedQuantity)
+        {
+            if(orderedQuantity <= Quantity)
+            {
+                if (orderedQuantity == Quantity)
+                {
+                    ForSale = false;
+                }
+                Quantity -= orderedQuantity;
+                
+                return true;
+            }
+            else
+            {
+                // quantity > Quantity
+                return false;
+            }
+
+        } 
 
 
     }

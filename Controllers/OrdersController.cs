@@ -64,13 +64,23 @@ namespace Your_IoT_Handprint.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,OrderedOn,RecipientAdress,ProjectId")] Order order)
+        public ActionResult Create([Bind(Include = "Id,RecipientAdress,Quantity,ProjectId")] Order order)
         {
             if (ModelState.IsValid)
             {
-                db.orders.Add(order);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                Project theProject = db.projects.Find(order.ProjectId);
+                // povik order na proekt
+                // nekako da se sejvne proektot
+                bool rez = theProject.order(order.Quantity);
+                if (rez)
+                {
+                    db.Entry(theProject).State = EntityState.Modified;
+
+                    db.orders.Add(order);
+                    db.SaveChanges();
+                }
+                
+                return RedirectToAction("Index","ProjectsAndEvents");
             }
 
             return View(order);
