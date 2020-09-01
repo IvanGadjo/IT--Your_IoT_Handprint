@@ -13,6 +13,7 @@ namespace Your_IoT_Handprint.Models
 
         public virtual List<Project> MyProjects { get; set; }
         public virtual List<Event> MyEvents { get; set; }
+        public virtual List<Order> Orders { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

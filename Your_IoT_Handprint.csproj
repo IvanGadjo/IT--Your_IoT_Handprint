@@ -230,6 +230,18 @@
     <Compile Include="Migrations\202008301058453_QuantityToOrder.designer.cs">
       <DependentUpon>202008301058453_QuantityToOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009011053114_UserIdToOrder.cs" />
+    <Compile Include="Migrations\202009011053114_UserIdToOrder.designer.cs">
+      <DependentUpon>202009011053114_UserIdToOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009011119301_StatusToOrder.cs" />
+    <Compile Include="Migrations\202009011119301_StatusToOrder.designer.cs">
+      <DependentUpon>202009011119301_StatusToOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009011133090_CreatorUsernameToOrder.cs" />
+    <Compile Include="Migrations\202009011133090_CreatorUsernameToOrder.designer.cs">
+      <DependentUpon>202009011133090_CreatorUsernameToOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -372,6 +384,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008301058453_QuantityToOrder.resx">
       <DependentUpon>202008301058453_QuantityToOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009011053114_UserIdToOrder.resx">
+      <DependentUpon>202009011053114_UserIdToOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009011119301_StatusToOrder.resx">
+      <DependentUpon>202009011119301_StatusToOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009011133090_CreatorUsernameToOrder.resx">
+      <DependentUpon>202009011133090_CreatorUsernameToOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

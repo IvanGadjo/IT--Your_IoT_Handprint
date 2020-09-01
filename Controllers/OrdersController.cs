@@ -38,6 +38,7 @@ namespace Your_IoT_Handprint.Controllers
         }
 
         // GET: Orders/Details/5
+        /*
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -50,7 +51,7 @@ namespace Your_IoT_Handprint.Controllers
                 return HttpNotFound();
             }
             return View(order);
-        }
+        }*/
 
         // GET: Orders/Create/5
         public ActionResult Create(int id)
@@ -76,6 +77,9 @@ namespace Your_IoT_Handprint.Controllers
                 {
                     db.Entry(theProject).State = EntityState.Modified;
 
+                    //order.User = loggedInUser;
+                    order.UserId = loggedInUser.Id;
+                    order.CreatorUsername = loggedInUser.UserName;
                     db.orders.Add(order);
                     db.SaveChanges();
                 }
@@ -106,14 +110,18 @@ namespace Your_IoT_Handprint.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,OrderedOn,RecipientAdress,ProjectId")] Order order)
+        //public ActionResult Edit([Bind(Include = "Id,OrderedOn,RecipientAdress,ProjectId")] Order order)
+        public ActionResult Edit([Bind(Include = "Id,OrderedOn,RecipientAdress,ProjectId,Status")] Order order)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(order).State = EntityState.Modified;
+            //if (ModelState.IsValid)
+            //{
+            order.UserId = loggedInUser.Id;
+            order.CreatorUsername = loggedInUser.UserName;
+
+            db.Entry(order).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
+            //}
             return View(order);
         }
 
