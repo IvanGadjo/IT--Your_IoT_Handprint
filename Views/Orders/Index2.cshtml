@@ -1,0 +1,123 @@
+﻿@model Your_IoT_Handprint.Models.Helpers.AllOrders
+
+@{
+    ViewBag.Title = "Index2";
+}
+
+<h2>Index2</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<h3>ORDERS TO DELIVER</h3>
+<table class="table">
+    <tr>
+        <th>
+            Ordered on
+        </th>
+        <th>
+            Ordered by
+        </th>
+        <th>
+            Recipient adress
+        </th>
+        <th>
+            Project Id
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Status
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.OrdersToDeliver)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatorUsername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecipientAdress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                <!--@Html.ActionLink("Details", "Details", new { id = item.Id }) |-->
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+<h3>MY ORDERS</h3>
+<table class="table">
+    <tr>
+        <th>
+            Ordered on
+        </th>
+        <th>
+            Ordered by
+        </th>
+        <th>
+            Recipient adress
+        </th>
+        <th>
+            Project Id
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Status
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.MyOrders)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatorUsername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecipientAdress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                <!--@Html.ActionLink("Details", "Details", new { id = item.Id }) |-->
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

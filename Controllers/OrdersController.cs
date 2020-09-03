@@ -9,6 +9,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Your_IoT_Handprint.Models;
+using Your_IoT_Handprint.Models.Helpers;
 
 namespace Your_IoT_Handprint.Controllers
 {
@@ -35,6 +36,39 @@ namespace Your_IoT_Handprint.Controllers
             }
             // List<Order> orders = db.orders.ToList().Where(ordr => ordr.ProjectId)
             return View(myOrders);
+        }
+
+        // GET: Orders/Index2
+        public ActionResult Index2()
+        {
+            // orders that i should deliver
+            List<Order> ordersToDeliver = new List<Order>();
+            foreach (Project p in loggedInUser.MyProjects)
+            {
+                foreach (Order o in db.orders.ToList())
+                {
+                    if (o.ProjectId.Equals(p.Id))
+                    {
+                        ordersToDeliver.Add(o);
+                    }
+                }
+            }
+
+            // my orders
+            List<Order> myOrders = new List<Order>();
+            foreach(Order o in db.orders.ToList())
+            {
+                if (o.UserId.Equals(loggedInUser.Id))
+                {
+                    myOrders.Add(o);
+                }
+            }
+
+            AllOrders model = new AllOrders();
+            model.MyOrders = myOrders;
+            model.OrdersToDeliver = ordersToDeliver;
+
+            return View(model);
         }
 
         // GET: Orders/Details/5
@@ -111,17 +145,18 @@ namespace Your_IoT_Handprint.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         //public ActionResult Edit([Bind(Include = "Id,OrderedOn,RecipientAdress,ProjectId")] Order order)
-        public ActionResult Edit([Bind(Include = "Id,OrderedOn,RecipientAdress,ProjectId,Status")] Order order)
+        public ActionResult Edit([Bind(Include = "Id,OrderedOn,RecipientAdress,ProjectId,Status,UserId")] Order order)
         {
-            //if (ModelState.IsValid)
-            //{
-            order.UserId = loggedInUser.Id;
-            order.CreatorUsername = loggedInUser.UserName;
+            if (ModelState.IsValid)
+            {
+                //order.UserId = loggedInUser.Id;
+                //order.CreatorUsername = loggedInUser.UserName;
+                order.CreatorUsername = db.Users.Find(order.UserId).UserName;
 
-            db.Entry(order).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            //}
+                db.Entry(order).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+            }
             return View(order);
         }
 
