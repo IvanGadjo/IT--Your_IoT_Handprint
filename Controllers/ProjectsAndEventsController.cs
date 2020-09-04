@@ -46,6 +46,7 @@ namespace Your_IoT_Handprint.Controllers
 
 
         // ----- UNUSED
+        /*
         // GET: ProjectsAndEvents/ProjectDetails/5
         public ActionResult ProjectDetails(int id)
         {
@@ -160,5 +161,6 @@ namespace Your_IoT_Handprint.Controllers
                 return View();
             }
         }
+        */
     }
 }

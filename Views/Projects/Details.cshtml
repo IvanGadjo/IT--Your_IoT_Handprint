@@ -10,9 +10,6 @@
     <h4>Project</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.User.Email)
-        </dt>
 
         <dd>
             @Html.DisplayFor(model => model.User.Email)
@@ -54,8 +51,9 @@
             @Html.DisplayNameFor(model => model.GithubRepoUrl)
         </dt>
 
+       
         <dd>
-            @Html.DisplayFor(model => model.GithubRepoUrl)
+            <a href="@Model.GithubRepoUrl">@Model.GithubRepoUrl</a>
         </dd>
 
         <dt>

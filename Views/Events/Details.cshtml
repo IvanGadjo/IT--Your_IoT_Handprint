@@ -10,9 +10,6 @@
     <h4>Event</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.User.Email)
-        </dt>
 
         <dd>
             @Html.DisplayFor(model => model.User.Email)
@@ -70,8 +67,9 @@
             @Html.DisplayNameFor(model => model.EventLinkUrl)
         </dt>
 
+
         <dd>
-            @Html.DisplayFor(model => model.EventLinkUrl)
+            <a href="@Model.EventLinkUrl">@Model.EventLinkUrl</a>
         </dd>
 
         <dt>

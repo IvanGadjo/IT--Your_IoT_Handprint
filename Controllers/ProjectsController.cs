@@ -28,14 +28,6 @@ namespace Your_IoT_Handprint.Controllers
             this.UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(this.db));
         }
 
-        // ------------------ Unused
-        // GET: Projects
-        /*public ActionResult Index()
-        {
-            var projects = db.projects.Include(p => p.User);
-            return View(projects.ToList());
-        }*/
-
 
         // GET: Projects/Details/5
         public ActionResult Details(int? id)

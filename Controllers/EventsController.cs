@@ -19,16 +19,6 @@ namespace Your_IoT_Handprint.Controllers
             .GetOwinContext().GetUserManager<ApplicationUserManager>()
             .FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
 
-        // ------------------ Unused
-        // GET: Events
-        /*public ActionResult Index()
-        {
-            var events = db.events.Include(p => p.User);
-            return View(events.ToList());
-        }*/
-
-
-
 
         // GET: Events/Details/5
         public ActionResult Details(int? id)

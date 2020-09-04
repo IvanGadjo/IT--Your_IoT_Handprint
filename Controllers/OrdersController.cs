@@ -23,7 +23,7 @@ namespace Your_IoT_Handprint.Controllers
         // GET: Orders
         public ActionResult Index()
         {
-            List<Order> myOrders = new List<Order>();
+            /*List<Order> myOrders = new List<Order>();
             foreach(Project p in loggedInUser.MyProjects)
             {
                 foreach(Order o in db.orders.ToList())
@@ -35,7 +35,8 @@ namespace Your_IoT_Handprint.Controllers
                 }
             }
             // List<Order> orders = db.orders.ToList().Where(ordr => ordr.ProjectId)
-            return View(myOrders);
+            return View(myOrders);*/
+            return RedirectToAction("Index2");
         }
 
         // GET: Orders/Index2
