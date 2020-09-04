@@ -41,6 +41,17 @@ namespace Your_IoT_Handprint.Controllers
         }
 
 
+        public ActionResult ProjectsAndEventsByUserCards()
+        {
+            ApplicationUser loggedInUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+
+            EventsAndProjects model = new EventsAndProjects();
+            model.Projects = db.projects.ToList().Where(pr => pr.UserId.Equals(loggedInUser.Id)).ToList();
+            model.Events = db.events.ToList().Where(ev => ev.UserId.Equals(loggedInUser.Id)).ToList();
+            return View(model);
+        }
+
+
 
 
 

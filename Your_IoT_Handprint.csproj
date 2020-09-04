@@ -242,6 +242,14 @@
     <Compile Include="Migrations\202009011133090_CreatorUsernameToOrder.designer.cs">
       <DependentUpon>202009011133090_CreatorUsernameToOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009041938169_removeUserFKfromOrder.cs" />
+    <Compile Include="Migrations\202009041938169_removeUserFKfromOrder.designer.cs">
+      <DependentUpon>202009041938169_removeUserFKfromOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009041952272_addedPrasalnik.cs" />
+    <Compile Include="Migrations\202009041952272_addedPrasalnik.designer.cs">
+      <DependentUpon>202009041952272_addedPrasalnik.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -259,6 +267,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cards-page.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -330,6 +339,7 @@
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Orders\Index2.cshtml" />
+    <Content Include="Views\ProjectsAndEvents\ProjectsAndEventsByUserCards.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -395,6 +405,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009011133090_CreatorUsernameToOrder.resx">
       <DependentUpon>202009011133090_CreatorUsernameToOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009041938169_removeUserFKfromOrder.resx">
+      <DependentUpon>202009041938169_removeUserFKfromOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009041952272_addedPrasalnik.resx">
+      <DependentUpon>202009041952272_addedPrasalnik.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

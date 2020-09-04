@@ -153,6 +153,16 @@ namespace Your_IoT_Handprint.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Project project = db.projects.Find(id);
+
+            List<Order> allOrders = db.orders.ToList();
+            foreach(Order o in allOrders)
+            {
+                if(o.ProjectId == project.Id)
+                {
+                    o.ProjectId = null;
+                }
+            }
+
             db.projects.Remove(project);
             db.SaveChanges();
             return RedirectToAction("ProjectsAndEventsByUser", "ProjectsAndEvents");

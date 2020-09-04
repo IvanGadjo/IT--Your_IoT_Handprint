@@ -11,13 +11,7 @@
     <h4>Project</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.User.Email)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.User.Email)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -82,7 +76,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "ProjectsAndEventsByUser", "ProjectsAndEvents");
+            @Html.ActionLink("Back to List", "ProjectsAndEventsByUser", "ProjectsAndEvents")
         </div>
     }
 </div>

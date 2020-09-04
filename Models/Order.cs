@@ -30,12 +30,12 @@ namespace Your_IoT_Handprint.Models
         public string Status { get; set; }
 
         //conn
-        public int ProjectId { get; set; }
+        public int ?ProjectId { get; set; }
 
         public string UserId { get; set; }      // id of the creator of the order
         public string CreatorUsername { get; set; }
-        [ForeignKey("UserId")]
-        public ApplicationUser User { get; set; }   // creator of the order
+        //[ForeignKey("UserId")]
+        //public ApplicationUser User { get; set; }   // creator of the order
 
 
 
