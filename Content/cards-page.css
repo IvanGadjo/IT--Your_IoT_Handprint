@@ -1,4 +1,6 @@
-﻿/* Prevent image stretching is it's resized */
+﻿
+
+/* Prevent image stretching is it's resized */
 .card-img-top {
     object-fit: cover;
 }
@@ -50,5 +52,8 @@
 
 .my-card-container {
     margin-right: 50px;
-    
 }
+
+
+
+

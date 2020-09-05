@@ -330,7 +330,6 @@
     <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
-    <Content Include="Views\ProjectsAndEvents\ProjectsAndEventsByUser.cshtml" />
     <Content Include="Views\Projects\ProjectDetailsByUser.cshtml" />
     <Content Include="Views\Events\EventDetailsByUser.cshtml" />
     <Content Include="Views\Orders\Create.cshtml" />
@@ -339,7 +338,7 @@
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Orders\Index2.cshtml" />
-    <Content Include="Views\ProjectsAndEvents\ProjectsAndEventsByUserCards.cshtml" />
+    <Content Include="Views\ProjectsAndEvents\ProjectsAndEventsByUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

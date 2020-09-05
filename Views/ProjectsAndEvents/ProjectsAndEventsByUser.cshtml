@@ -1,71 +1,162 @@
 ﻿@model Your_IoT_Handprint.Models.Helpers.EventsAndProjects
 
 @{
-    ViewBag.Title = "ProjectsAndEventsByUser";
+    ViewBag.Title = "ProjectsAndEventsByUserCards";
 }
 
-<h2>Your projects and events</h2>
+<h2>My projects and events</h2>
+<br />
 
-<p>
-    @Html.ActionLink("Create New Project", "CreateProject")
-    <br />
-    @Html.ActionLink("Create New Event", "Create", "Events")
-</p>
+<head>
+    <link rel="stylesheet" href="/Content/cards-page.css" type="text/css" />
+</head>
+<body>
 
+    <a class="btn btn-default" href="/Projects/Create">Create New Project</a>
+    <a class="btn btn-default" href="/Events/Create">Create New Event</a>
+    <br /><br /><br />
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Creator</th>
-            <th>Image</th>
-            <th>Average rating</th>
-            <th>Description</th>
-            <th>Github repo/Event link</th>
-            <th>TYPE</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
+    <div class="row">
+
         @{
             foreach (var project in Model.Projects)
             {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => project.Name)</td>
-                    <td>@Html.DisplayFor(modelItem => project.CreatorUsername)</td>
-                    <td>
-                        <img src=@project.ImageUrl />
-                    </td>
-                    <td>@Html.DisplayFor(modelItem => project.AvgRating)</td>
-                    <td>@Html.DisplayFor(modelItem => project.Description)</td>
-                    <td>@Html.DisplayFor(modelItem => project.GithubRepoUrl)</td>
-                    <td>PROJECT</td>
-                    <td>
-                        <button><a href="/Projects/ProjectDetailsByUser/@project.Id">Details</a></button>
-                        <button><a href="/Projects/Delete/@project.Id">Delete</a></button>
-                    </td>
-                </tr>
+                <div class="col-12 col-md-6 col-lg-4 mb-4 my-card-container">
+                    <div class="card" style="border:3px solid #a2dbb2;
+                            border-radius: 5px;
+                            margin-bottom: 10px">
+                        <div>
+                            <img class="card-img-top" src="@project.ImageUrl" alt="Card image cap">
+
+                            <p style="color:darkorange;
+                                  font-family:courier;
+                                  text-align:center;">PROJECT</p>
+                        </div>
+
+
+                        <div class="card-body">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Creator Username</th>
+                                        <th>Avg rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>@project.Name</td>
+                                        <td>@project.CreatorUsername</td>
+                                        <td>@project.AvgRating</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a class="btn btn-sm btn-default" href="/Projects/ProjectDetailsByUser/@project.Id">Details</a>
+                                                <a class="btn btn-sm btn-danger" href="/Projects/Delete/@project.Id">Delete</a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                            <p class="card-text"><a href="@project.GithubRepoUrl">@project.GithubRepoUrl</a></p>
+
+                            <p class="card-text">@project.Description</p>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
             }
+
+
 
 
             foreach (var evnt in Model.Events)
             {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => evnt.Name)</td>
-                    <td>@Html.DisplayFor(modelItem => evnt.CreatorUsername)</td>
-                    <td>
-                        <img src=@evnt.ImageUrl/>
-                    </td>
-                    <td>@Html.DisplayFor(modelItem => evnt.AvgRating)</td>
-                    <td>@Html.DisplayFor(modelItem => evnt.Description)</td>
-                    <td>@Html.DisplayFor(modelItem => evnt.EventLinkUrl)</td>
-                    <td>EVENT</td>
-                    <td>
-                        <button><a href="/Events/EventDetailsByUser/@evnt.Id">Details</a></button>
-                        <button><a href="/Events/Delete/@evnt.Id">Delete</a></button>
-                    </td>
-                </tr>
+                <div class="col-12 col-md-6 col-lg-4 mb-4 my-card-container">
+                    <div class="card" style="border:3px solid #d19b06;
+                            border-radius: 5px;">
+                        <div>
+                            <img class="card-img-top" src="@evnt.ImageUrl" alt="Card image cap">
+
+                            <p style="color:darkorange;
+                                  font-family:courier;
+                                  text-align:center;">EVENT</p>
+                        </div>
+
+
+                        <div class="card-body">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Creator Username</th>
+                                        <th>Avg rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>@evnt.Name</td>
+                                        <td>@evnt.CreatorUsername</td>
+                                        <td>@evnt.AvgRating</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a class="btn btn-sm btn-default" href="/Events/EventDetailsByUser/@evnt.Id">Details</a>
+                                                <a class="btn btn-sm btn-danger" href="/Events/Delete/@evnt.Id">Delete</a>
+
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <label>Date:</label>
+                            <p class="card-text">@evnt.Date</p>
+
+                            <p class="card-text"><a href="@evnt.EventLinkUrl">@evnt.EventLinkUrl</a></p>
+
+                            <p class="card-text">@evnt.Description</p>
+
+                        </div>
+
+                    </div>
+                </div>
             }
         }
-    </tbody>
-</table>
+
+        <!-- the cols in this div change the number of cards per row depending on screen size and the mb-4 adds space below cards if they spill over into the next row-->
+        <!--<div class="col-12 col-md-6 col-lg-4 mb-4 my-card-container">
+            <div class="card">
+                <img class="card-img-top" src="https://res.cloudinary.com/sepuckett86/image/upload/v1513176680/IMG_5837_xicdt5.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="https://res.cloudinary.com/sepuckett86/image/upload/v1513095416/IMG_7240_q9dadh.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="https://res.cloudinary.com/sepuckett86/image/upload/v1513176676/DSCN2129_copy_cdgcqc.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">This photo is a different size than the first two.</p>
+                </div>
+            </div>
+        </div>-->
+    </div>
+
+</body>

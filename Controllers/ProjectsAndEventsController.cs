@@ -30,7 +30,7 @@ namespace Your_IoT_Handprint.Controllers
 
         // GET: ProjectsAndEventsByUser
         // Projects and events of the user
-        public ActionResult ProjectsAndEventsByUser()
+        /*public ActionResult ProjectsAndEventsByUser()
         {
             ApplicationUser loggedInUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
 
@@ -38,10 +38,10 @@ namespace Your_IoT_Handprint.Controllers
             model.Projects = db.projects.ToList().Where(pr => pr.UserId.Equals(loggedInUser.Id)).ToList();
             model.Events = db.events.ToList().Where(ev => ev.UserId.Equals(loggedInUser.Id)).ToList();
             return View(model);
-        }
+        }*/
 
 
-        public ActionResult ProjectsAndEventsByUserCards()
+        public ActionResult ProjectsAndEventsByUser()
         {
             ApplicationUser loggedInUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
 
