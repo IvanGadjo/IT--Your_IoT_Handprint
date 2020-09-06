@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h3>Project details</h3>
 
 <div>
-    <h4>Project</h4>
+    
     <hr />
     <dl class="dl-horizontal">
 
@@ -36,7 +36,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ImageUrl)
+            <img src="@Model.ImageUrl" />
         </dd>
 
         <dt>
@@ -84,11 +84,11 @@
     @{
         if (Model.ForSale && Model.Quantity > 0)
         {
-            <!--@Html.ActionLink("Order", "Create", "Orders", new { Model.Id })-->
-            <a href="/Orders/Create/@Model.Id">Order</a>
+            <a class="btn btn-warning" href="/Orders/Create/@Model.Id">Order</a>
         }
     }
 
 
-    @Html.ActionLink("Back to List", "Index", "ProjectsAndEvents")
+    
+    <a class="btn btn-default" href="/ProjectsAndEvents/Index">Back to list</a>
 </p>

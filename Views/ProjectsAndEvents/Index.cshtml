@@ -4,112 +4,161 @@
     ViewBag.Title = "Index";
 }
 
-<h2>All Ideas</h2>
 
-<!--
-<p>
-    @Html.ActionLink("Create New Project", "CreateProject")
-    <br />
-    @Html.ActionLink("Create New Event", "Create", "Events")
 
-</p>
--->
+<head>
+    <link rel="stylesheet" href="/Content/cards-page.css" type="text/css" />
+</head>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Creator</th>
-            <th>Image</th>
-            <th>Average rating</th>
-            <th>Description</th>
-            <th>Github repo/Event link</th>
-            <th>TYPE</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
+<body>
+    <br/><br/>
+
+    <div class="row">
         @{
             foreach (var project in Model.Projects)
             {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => project.Name)</td>
-                    <td>@Html.DisplayFor(modelItem => project.CreatorUsername)</td>
-                    <td>
-                        <img src=@project.ImageUrl />
-                    </td>
-                    <td>@Html.DisplayFor(modelItem => project.AvgRating)</td>
-                    <td>@Html.DisplayFor(modelItem => project.Description)</td>
-                    <td>@Html.DisplayFor(modelItem => project.GithubRepoUrl)</td>
-                    <td>PROJECT</td>
-                    <td>
+                <div class="col-12 col-md-6 col-lg-4 mb-4 my-card-container">
+                    <div class="card mojaKarticaProject" >
                         <div>
-                            <button><a href="/Projects/Details/@project.Id">Details</a></button>
-                            <br />
+                            
+                            <img class="card-img-top" src="@project.ImageUrl" alt="Card image cap">
 
-                            @{
-                                if (!project.UserId.Equals(ViewBag.LoggedInUserId))
-                                {
-                                    using (Html.BeginForm("RateProject", "Projects", new { id = project.Id }))
-                                    {
-
-                                        <input type="number" name="rating" min="1" max="10" />
-
-                                        <button type="submit">Rate</button>
-                                    }
-                                }
-                            }
-
-                            <!--
-                                @using (Html.BeginForm("RateProject", "Projects", new { id = project.Id }))
-                                {
-
-                                    <input type="number" name="rating" min="1" max="10" />
-
-                                    <button type="submit">Rate</button>
-                                }-->
+                            <p style="color:#1be390;
+                                  font-family:Impact;
+                                  text-align:center;
+                                  ">PROJECT</p>
                         </div>
-                    </td>
-                </tr>
+
+
+                        <div class="card-body">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Creator Username</th>
+                                        <th>Avg rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>@project.Name</td>
+                                        <td>@project.CreatorUsername</td>
+                                        <td>@project.AvgRating</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a class="btn btn-sm btn-default" href="/Projects/Details/@project.Id" style="margin-top:5px">Details</a>
+                                                
+                                                @{
+                                                    if (!project.UserId.Equals(ViewBag.LoggedInUserId))
+                                                    {
+                                                        using (Html.BeginForm("RateProject", "Projects", new { id = project.Id }))
+                                                        {
+                                                            
+                                                            <input type="number" name="rating" min="1" max="10" style="margin-top:7px"/>
+                                                            <button class="btn btn-default" type="submit" style="margin-top:5px">Rate</button>
+                                                        }
+                                                    }
+                                                }
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                            <div class="container-fluid">
+                                <p class="card-text"><a href="@project.GithubRepoUrl">@project.GithubRepoUrl</a></p>
+                                <p class="card-text">@project.Description</p>
+                            </div>
+                            
+
+                        </div>
+
+                    </div>
+                </div>
+
+
             }
+
+
 
 
             foreach (var evnt in Model.Events)
             {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => evnt.Name)</td>
-                    <td>@Html.DisplayFor(modelItem => evnt.CreatorUsername)</td>
-                    <td>
-                        <img src=@evnt.ImageUrl />
-                    </td>
-                    <td>@Html.DisplayFor(modelItem => evnt.AvgRating)</td>
-                    <td>@Html.DisplayFor(modelItem => evnt.Description)</td>
-                    <td>@Html.DisplayFor(modelItem => evnt.EventLinkUrl)</td>
-                    <td>EVENT</td>
-                    <td>
+                <div class="col-12 col-md-6 col-lg-4 mb-4 my-card-container">
+                    <div class="card mojaKarticaEvent">
                         <div>
-                            <button><a href="/Events/Details/@evnt.Id">Details</a></button>
-                            <br />
-                            @{
-                                if (!evnt.UserId.Equals(ViewBag.LoggedInUserId))
-                                {
-                                    using (Html.BeginForm("RateEvent", "Events", new { id = evnt.Id }))
-                                    {
+                            <img class="card-img-top" src="@evnt.ImageUrl" alt="Card image cap">
 
-                                        <input type="number" name="rating" min="1" max="10" />
+                            <p style="color:darkorange;
+                                  font-family:Impact;
+                                  text-align:center;
+                                  ">EVENT</p>
+                        </div>
 
-                                        <button type="submit">Rate</button>
-                                    }
-                                }
-                            }
+
+                        <div class="card-body">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Creator Username</th>
+                                        <th>Avg rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>@evnt.Name</td>
+                                        <td>@evnt.CreatorUsername</td>
+                                        <td>@evnt.AvgRating</td>
+                                        <td>
+                                            <div class="btn-group">
+
+                                                
+                                                    <a class="btn btn-sm btn-default" href="/Events/Details/@evnt.Id" style="margin-top:5px">Details</a>
+                                                    
+                                                    @{
+                                                        if (!evnt.UserId.Equals(ViewBag.LoggedInUserId))
+                                                        {
+                                                            using (Html.BeginForm("RateEvent", "Events", new { id = evnt.Id }))
+                                                            {
+                                                                <input type="number" name="rating" min="1" max="10" style="margin-top:7px"/>
+                                                                <button class="btn btn-default" type="submit" style="margin-top:5px">Rate</button>
+                                                            }
+                                                        }
+                                                    }
+                                                
+
+                                                
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="container-fluid">
+                                <label>Date:</label>
+                                <p class="card-text">@evnt.Date</p>
+
+                                <p class="card-text"><a href="@evnt.EventLinkUrl">@evnt.EventLinkUrl</a></p>
+
+                                <p class="card-text">@evnt.Description</p>
+                            </div>
+
+                            
 
                         </div>
-                    </td>
-                </tr>
+
+                    </div>
+                </div>
             }
         }
-    </tbody>
-</table>
+    </div>
+</body>
 
 
 

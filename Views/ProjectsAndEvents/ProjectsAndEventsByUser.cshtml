@@ -22,14 +22,12 @@
             foreach (var project in Model.Projects)
             {
                 <div class="col-12 col-md-6 col-lg-4 mb-4 my-card-container">
-                    <div class="card" style="border:3px solid #a2dbb2;
-                            border-radius: 5px;
-                            margin-bottom: 10px">
+                    <div class="card mojaKarticaProject">
                         <div>
                             <img class="card-img-top" src="@project.ImageUrl" alt="Card image cap">
 
-                            <p style="color:darkorange;
-                                  font-family:courier;
+                            <p style="color:#1be390;
+                                  font-family:Impact;
                                   text-align:center;">PROJECT</p>
                         </div>
 
@@ -61,10 +59,12 @@
                                 </tbody>
                             </table>
 
+                            <div class="container-fluid">
+                                <p class="card-text"><a href="@project.GithubRepoUrl">@project.GithubRepoUrl</a></p>
 
-                            <p class="card-text"><a href="@project.GithubRepoUrl">@project.GithubRepoUrl</a></p>
-
-                            <p class="card-text">@project.Description</p>
+                                <p class="card-text">@project.Description</p>
+                            </div>
+                            
 
                         </div>
 
@@ -80,13 +80,12 @@
             foreach (var evnt in Model.Events)
             {
                 <div class="col-12 col-md-6 col-lg-4 mb-4 my-card-container">
-                    <div class="card" style="border:3px solid #d19b06;
-                            border-radius: 5px;">
+                    <div class="card mojaKarticaEvent">
                         <div>
                             <img class="card-img-top" src="@evnt.ImageUrl" alt="Card image cap">
 
                             <p style="color:darkorange;
-                                  font-family:courier;
+                                  font-family:Impact;
                                   text-align:center;">EVENT</p>
                         </div>
 
@@ -118,12 +117,15 @@
                                 </tbody>
                             </table>
 
-                            <label>Date:</label>
-                            <p class="card-text">@evnt.Date</p>
+                            <div class="container-fluid">
+                                <label>Date:</label>
+                                <p class="card-text">@evnt.Date</p>
 
-                            <p class="card-text"><a href="@evnt.EventLinkUrl">@evnt.EventLinkUrl</a></p>
+                                <p class="card-text"><a href="@evnt.EventLinkUrl">@evnt.EventLinkUrl</a></p>
 
-                            <p class="card-text">@evnt.Description</p>
+                                <p class="card-text">@evnt.Description</p>
+                            </div>
+                           
 
                         </div>
 

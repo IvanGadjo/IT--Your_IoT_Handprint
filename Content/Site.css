@@ -22,3 +22,23 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.myNavbar {
+    background-color: #054f20;
+    border-bottom:-10px;
+}
+
+.mojaKarticaEvent {
+    border: 3px solid #d19b06;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.mojaKarticaProject {
+    border: 3px solid #09b548;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
